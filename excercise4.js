@@ -1,16 +1,11 @@
 fetch("https://jsonplaceholder.typicode.com/todos")
   .then(response => response.json())
   .then(todos => {
+  const count = todos.reduce(function(n,todo){
+    return n + (todo.completed);
+  },0);
 
-    const todoTitles = [];
-
-    todos.forEach((todo,index) => {
-        todoTitles[index] = todo.title;
-    });
-
-    console.log(todoTitles);
+console.log(count)
   })  .catch(function(err) { 
     console.log(err);
   });
-
-  
