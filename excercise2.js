@@ -2,11 +2,8 @@ fetch("https://jsonplaceholder.typicode.com/todos")
   .then(response => response.json())
   .then(todos => {
 
-    const todoTitles = [];
 
-    todos.forEach((todo,index) => {
-        todoTitles[index] = todo.title;
-    });
+   const todoTitles = todos.map(item => item.title)
 
     console.log(todoTitles);
   })  .catch(function(err) { 
